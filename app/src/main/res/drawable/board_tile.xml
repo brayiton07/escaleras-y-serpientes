@@ -1,0 +1,5 @@
+<!-- res/drawable/board_tile.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#C8E6C9"/>  <!-- Color verde claro para las casillas -->
+    <size android:width="40dp" android:height="40dp"/> <!-- Tamaño de las casillas -->
+</shape>

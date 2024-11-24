@@ -1,0 +1,41 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_turn_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turno del jugador 1"
+        android:textSize="18sp"
+        android:paddingBottom="16dp" />
+
+    <!-- Muestra los resultados de los dados -->
+    <TextView
+        android:id="@+id/tv_dice_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dados: 0 y 0"
+        android:textSize="18sp"
+        android:paddingBottom="16dp" />
+
+    <!-- Aquí va el GridLayout para el tablero -->
+    <GridLayout
+        android:id="@+id/board_grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:columnCount="8"
+        android:rowCount="8"
+        android:orientation="horizontal"
+        android:padding="4dp"/>
+
+    <Button
+        android:id="@+id/btn_roll_dice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lanzar Dados" />
+</LinearLayout>
