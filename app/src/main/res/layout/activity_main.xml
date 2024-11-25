@@ -4,18 +4,51 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp">
+    android:background="@color/background_color"
+    android:padding="24dp">
+
+    <!-- Título del juego -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido al juego"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/title_color"
+        android:gravity="center"
+        android:paddingBottom="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Escaleras y Serpientes"
-        android:textSize="24sp"
-        android:paddingBottom="16dp" />
+        android:text="¡Juega serpientes y escaleras con tus amigos!"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/subtitle_color"
+        android:gravity="center"
+        android:paddingBottom="32dp" />
 
+    <!-- Botón para iniciar el juego -->
     <Button
         android:id="@+id/btn_start_game"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Iniciar Juego" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Juego"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/button_color"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Imagen decorativa  -->
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/snakes_and_ladders_icon"
+        android:contentDescription="Icono del juego"
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>

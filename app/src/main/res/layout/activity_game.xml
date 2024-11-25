@@ -3,26 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/background_color"
     android:padding="16dp">
 
+    <!-- Información del turno -->
     <TextView
         android:id="@+id/tv_turn_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Turno del jugador 1"
-        android:textSize="18sp"
-        android:paddingBottom="16dp" />
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/title_color"
+        android:gravity="center"
+        android:paddingBottom="12dp" />
 
-    <!-- Muestra los resultados de los dados -->
+    <!-- Información de los dados -->
     <TextView
         android:id="@+id/tv_dice_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dados: 0 y 0"
         android:textSize="18sp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/subtitle_color"
+        android:gravity="center"
         android:paddingBottom="16dp" />
 
-    <!-- Aquí va el GridLayout para el tablero -->
+    <!-- Tablero del juego -->
     <GridLayout
         android:id="@+id/board_grid"
         android:layout_width="match_parent"
@@ -30,12 +39,21 @@
         android:layout_weight="1"
         android:columnCount="8"
         android:rowCount="8"
-        android:orientation="horizontal"
-        android:padding="4dp"/>
+        android:padding="8dp"
+        >
 
+    </GridLayout>
+
+    <!-- Botón para lanzar los dados -->
     <Button
         android:id="@+id/btn_roll_dice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lanzar Dados" />
+        android:layout_width="200dp"
+        android:layout_height="56dp"
+        android:text="Lanzar Dados"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/button_color"
+        android:layout_marginTop="16dp"
+        android:elevation="4dp" />
 </LinearLayout>
