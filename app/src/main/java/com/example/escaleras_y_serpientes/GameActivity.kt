@@ -33,13 +33,13 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game) // Asignar el diseño a la actividad
 
-        // Inicialización de los componentes de la interfaz
+         // Inicialización de los componentes de la interfaz
         gridLayout = findViewById(R.id.board_grid)
         turnInfo = findViewById(R.id.tv_turn_info)
         rollDiceButton = findViewById(R.id.btn_roll_dice)
         diceInfo = findViewById(R.id.tv_dice_info)
 
-        // Inicialización de objetos de lógica del juego
+         // Inicialización de objetos de lógica del juego
         board = Board()  // Crear tablero
         player1 = Player("Jugador 1")  // Crear jugador 1
         player2 = Player("Jugador 2")  // Crear jugador 2
@@ -62,16 +62,16 @@ class GameActivity : AppCompatActivity() {
             // Regla de tres 6 consecutivos
             if (currentPlayer == player1) {
                 if (diceRoll1 == 6 || diceRoll2 == 6) {
-                    sixCountPlayer1++
+                    sixCountPlayer1++ // aumenta el contadaor cada vez que saque 6
                 }
-                if (sixCountPlayer1 == 3) {
-                    player1.position = 1 // Reiniciar posición a 1
+                if (sixCountPlayer1 == 3) { // validamos si la cantidad de tiros son igual a 3 se devuelve
+                    player1.position = 1 // Reiniciar posición del jugador a  1
                     sixCountPlayer1 = 0 // Reiniciar contador
                     turnInfo.text = "Jugador 1 tiró tres 6s, vuelve al inicio."
                 }
             } else {
                 if (diceRoll1 == 6 || diceRoll2 == 6) {
-                    sixCountPlayer2++
+                    sixCountPlayer2++ // aumenta el contadaor cada vez que saque 6
                 }
                 if (sixCountPlayer2 == 3) {
                     player2.position = 1 // Reiniciar posición a 1
@@ -93,19 +93,17 @@ class GameActivity : AppCompatActivity() {
             }
 
             // Verificar si el jugador ganó
-            if (currentPlayer?.position!! >= 64) {
+            if (currentPlayer?.position!! >= 64) { // validamos que la posicion sea la casilla 64
                 currentPlayer?.position = 64
-                turnInfo.text = "${currentPlayer?.name} ¡Ganó!"
+                turnInfo.text = "${currentPlayer?.name} ¡Ganó!" //mostramos el mensaje de ganador
                 rollDiceButton.isEnabled = false
             }
 
             // Mostrar el mensaje de serpiente o escalera solo si hubo un cambio de posición
-            if (currentPlayer?.position != previousPosition) {
-                if (currentPlayer?.position!! > previousPosition) {
-                    // El jugador subió por una escalera
+            if (currentPlayer?.position != previousPosition) { // validamos que la posicion del jugador es diferente
+                if (currentPlayer?.position!! > previousPosition) { // si la posicion es mayor es porque subio escalera
                     showLadderDialog(previousPosition, currentPlayer?.position!!, diceSum)
-                } else {
-                    // El jugador bajó por una serpiente
+                } else { // si no es mayor quiere decir que el jugador paso por una serpiente
                     showSnakeDialog(previousPosition, currentPlayer?.position!!)
                 }
             } else {
@@ -131,7 +129,7 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    // Crear el tablero de 8x8 con 64 casillas
+    // Funcion que crear el tablero de 8x8 con 64 casillas
     private fun createBoard() {
         for (i in 1..64) { // Iterar por 64 casillas
             val cell = TextView(this) // Crear una nueva celda
@@ -144,7 +142,7 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    // Mostrar el diálogo cuando se cae en una escalera
+    // Funcion que muestra el diálogo cuando se cae en una escalera
     private fun showLadderDialog(previousPosition: Int, newPosition: Int, diceSum: Int) {
         val message = "El Jugador ${currentPlayer?.name} ha subido de la casilla $previousPosition a la casilla $newPosition ya que sacó $diceSum en los dados."
         // Crear el cuadro de diálogo
@@ -158,7 +156,7 @@ class GameActivity : AppCompatActivity() {
     }
 
 
-    // Mostrar el diálogo cuando se cae en una serpiente
+    // Funcion que muestra el diálogo cuando se cae en una serpiente
     private fun showSnakeDialog(previousPosition: Int, newPosition: Int) {
         val message = "El Jugador ${currentPlayer?.name} ha bajado de la casilla $previousPosition a la casilla $newPosition por una serpiente."
         // Crear el cuadro de diálogo
@@ -172,7 +170,7 @@ class GameActivity : AppCompatActivity() {
     }
 
 
-    // Mostrar el mensaje cuando el jugador se mueve normalmente
+    // Funcion que muestra el mensaje cuando el jugador se mueve normalmente
     private fun showNormalMoveDialog(previousPosition: Int, diceSum: Int) {
         val message = "El Jugador ${currentPlayer?.name} ha avanzado de la casilla $previousPosition a la casilla ${currentPlayer?.position}, ya que sacó $diceSum en los dados."
         // Crear el cuadro de diálogo
